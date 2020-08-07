@@ -55,5 +55,11 @@ import java.util.List;
         return thecustomer;
     }
 
+    @Override
+    public void deleting(Customer mycustomer) {
+        Session currentsession=sessionFactory.getCurrentSession();
+        currentsession.delete(mycustomer);
+
+    }
 }
 

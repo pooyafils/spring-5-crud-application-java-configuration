@@ -26,7 +26,7 @@
 
 <div id="wrapper">
     <div id="header">
-        <h2>CRM - Customer Relationship Manager</h2>
+        <h2>CRM - Customer Relationship Manager application spring 5</h2>
     </div>
 </div>
 
@@ -35,7 +35,7 @@
     <div id="content">
 
         <!--  add our html table here -->
-        <input type="button" value="add Customer" onclick="window.location.href='showFormForAdd';return false;"
+        <input type="button" value="add Customer" onclick="window.location.href='${pageContext.request.contextPath}/c/customer/showFormForAdd';return false;"
         class="add-button"/>
         <table>
             <tr>
@@ -48,9 +48,11 @@
             <!-- loop over and print our customers -->
             <c:forEach var="tempCustomer" items="${customers}">
                 <! creating link for update why they must be inside a togather?-->
-                <c:url var="updateLink"  value="/customer/showFormUpdate">
+                <c:url var="updateLink"  value="/c/customer/showFormUpdate">
                     <c:param name="customerid" value="${tempCustomer.id}"/>
-
+                </c:url>
+                <c:url var="deleteLink"  value="/c/customer/delete">
+                    <c:param name="customerid" value="${tempCustomer.id}"/>
                 </c:url>
                 <tr>
                     <td> ${tempCustomer.firstName} </td>
@@ -59,7 +61,9 @@
                     <td>
                         <a href="${updateLink}">Update</a>
                     </td>
-
+                    <td>
+                        <a href="${deleteLink}">Delete</a>
+                    </td>
 
 
                 </tr>

@@ -18,13 +18,15 @@
 <div id="wrapper">
     <div id="header">
         <h2>CRM CUSOMER MANAGER</h2>
-
-
+<%--<c:url var="addAction" value="/c/customer/savecustomer" ></c:url>
+<form:form action="${addAction}" modelAttribute="customer" method="post" >
+you need also to import jstl other way is that
+        action="javacongif_war/c/customer/savecustomer"
+        --%>
     </div>
 </div>
 <div id="container">
-    <form:form action="savecustomer" modelAttribute="customer" method="post">
-<!-- nee dto assicated this data  with customer id -->
+    <form:form action="${pageContext.request.contextPath}/c/customer/savecustomer" modelAttribute="customer" method="post" >
         <form:hidden path="id"/>
         <table>
             <tbody>
@@ -54,5 +56,6 @@
             back to the form </a>
     </p>
 </div>
+
 </body>
 </html>

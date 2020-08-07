@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import com.lov.CustomerDAO;
 import com.lov.Customer;
 
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+
 @Controller
+@RequestMapping("/c")
 public class CustomerController {
 
     // need to inject the customer dao
@@ -46,10 +49,10 @@ public class CustomerController {
         themodel.addAttribute("customer",thecustomer);
         return "customer-form";
     }
-    @PostMapping("/customer/savecustomer")
+    @RequestMapping(value = "/customer/savecustomer",method = POST)
     public String saveCustomer(@ModelAttribute("customer") Customer thecustomer){
         customerService.saveCustomer(thecustomer);
-        return "redirect:/customer/list";
+        return "redirect:/c/customer/list";
     }
     @GetMapping("/customer/showFormUpdate")
     public String showFormUpdate(@RequestParam("customerid") int Id,Model model){
@@ -61,8 +64,11 @@ public class CustomerController {
 
         return"customer-form";
     }
-
-
-
+    @RequestMapping("/customer/delete")
+    public String deletingCustomer(@RequestParam("customerid") int Id,Model model){
+        Customer mycustomer=customerService.getCustomer(Id);
+        customerService.deleting(mycustomer);
+        return "redirect:/c/customer/list";
+    }
 }
 

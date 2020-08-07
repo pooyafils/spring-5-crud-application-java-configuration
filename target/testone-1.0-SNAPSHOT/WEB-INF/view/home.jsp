@@ -11,6 +11,7 @@
     <title></title>
 </head>
 <body>
-hello world
+customer page: <br/><br/>
+<a href="${pageContext.request.contextPath}/c/customer/list">main page</a>
 </body>
 </html>
