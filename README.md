@@ -1,5 +1,5 @@
  # spring 5 crud application 
- Spring 5 crud application that has a java configuration and use hibernate for comunicating with database.
+ Spring 5 crud application that has a java configuration and use hibernate for communicating with database.
  ## Demo
 ![Farmers Market Finder Demo](readme/demo.gif)
 
